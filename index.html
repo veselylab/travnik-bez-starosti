@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/travnik-bez-starosti/">
+<!-- BASE:END -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#FBFBF7">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+
+<!-- SEO Meta Tags -->
+<title>Dokonale posekaný trávník každý den — bez sekání, bez hluku, bez starostí</title>
+<meta name="description" content="Dodáme, nastavíme a spravujeme autonomní sečení vašeho pozemku. Vy nic nekupujete, nic neřešíte — jen máte stále upravený trávník. Cena od 1 990 Kč měsíčně." />
+<meta property="og:title" content="Dokonale posekaný trávník každý den — bez sekání, bez hluku, bez starostí" />
+<meta property="og:description" content="Dodáme, nastavíme a spravujeme autonomní sečení vašeho pozemku. Vy nic nekupujete, nic neřešíte — jen máte stále upravený trávník. Cena od 1 990 Kč měsíčně." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dokonale posekaný trávník každý den — bez sekání, bez hluku, bez starostí" />
+<meta name="twitter:description" content="Dodáme, nastavíme a spravujeme autonomní sečení vašeho pozemku. Vy nic nekupujete, nic neřešíte — jen máte stále upravený trávník. Cena od 1 990 Kč měsíčně." />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://app.vesely.ai/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4119');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='Z3zQUvTier';
+  var apiBase='https://app.vesely.ai';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 22V12c5-5 13-5 18 0v10"/><path d="M6 22v-6"/><path d="M10 22v-9"/>
+          <path d="M14 22v-9"/><path d="M18 22v-6"/>
+        </svg>
+      </span>
+      Trávník bez starostí
+    </a>
+    <a href="#kontakt" class="nav-cta">
+      Posoudit zahradu
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="hero-eyebrow"><span class="dot"></span>Sezóna 2026 — přijímáme nové zahrady</span>
+    <h1>Dokonale posekaný trávník <em>každý den.</em> Bez sekání, bez hluku, bez starostí.</h1>
+    <p class="lead">Dodáme, nastavíme a spravujeme autonomní sečení vašeho pozemku. Vy nic nekupujete, nic neřešíte — jen máte stále upravený trávník.</p>
+    <div class="cta-row">
+      <a href="#kontakt" class="btn btn-green">
+        Chci posoudit zahradu zdarma
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#jak" class="btn btn-ghost">Jak to funguje</a>
+    </div>
+    <div class="hero-trust">
+      <span><span class="check">✓</span> Bez instalačního poplatku</span>
+      <span><span class="check">✓</span> Garance výsledku</span>
+      <span><span class="check">✓</span> Servis a zimování v ceně</span>
+    </div>
+    <div class="hero-visual">
+      <img src="https://app.vesely.ai/objects/generated-images/95/1779181960776-af85dd99be1a1cd8.png" alt="Rodina si užívá společný čas na perfektně posekaném trávníku před moderní minimalistickou vilou" loading="eager">
+      <div class="hero-visual-overlay">
+        <div class="caption">Takhle vypadá víkend rodiny, která už sekání neřeší.</div>
+        <div class="hero-stat"><strong>365 dní</strong>v sezóně upraveno</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fomo">
+    <div class="fomo-inner">
+      <div class="fomo-text">
+        <strong>Sezóna se rychle plní.</strong> Pro instalace v dubnu a květnu máme omezenou kapacitu — kvalitu měříme počtem zahrad, ne počtem prodaných strojů.
+      </div>
+      <div class="fomo-counter">
+        <div class="fomo-counter-num" id="slotsLeft">17</div>
+        <div class="fomo-counter-label">volných míst<br>pro jaro 2026</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Realita</span>
+      <h2>Sekání trávy je práce, <em>ne radost.</em></h2>
+      <p class="lead-2">Většina majitelů zahrad netuší, kolik hodin ročně sekání spolkne. Až do prvního víkendu, kdy by raději dělali cokoli jiného.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-item">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="problem-text"><strong>Zabírá čas</strong><p>Hodiny každý týden místo víkendu s rodinou nebo na zahradě v klidu.</p></div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+        <div class="problem-text"><strong>Je hlučné</strong><p>Vy ho slyšíte, vaše rodina, vaši sousedé. A nedá se to dělat večer.</p></div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="problem-text"><strong>Musí se plánovat</strong><p>Počasí, čas, energie, sousedi. Když nestihnete týden, je z toho stepní porost.</p></div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="2" y="9" width="20" height="13" rx="2" ry="2"/></svg></div>
+        <div class="problem-text"><strong>Zahradnické firmy jezdí občas</strong><p>Posekají, odjedou. Mezi návštěvami zahrada zase přeroste.</p></div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <div class="problem-text"><strong>Vlastní robosekačka? Další úkol.</strong><p>Instalace, mapování, aplikace, výměna nožů, poruchy, zimování. Místo úlevy další technika v hlavě.</p></div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="problem-text"><strong>Sezóna nečeká</strong><p>Když nezačnete v dubnu, červen už řeší jiný problém — vysokou trávu a špatný start.</p></div>
+      </div>
+    </div>
+
+    <div class="problem-kicker">
+      Robota si umí koupit každý.<br>Ale málokdo chce řešit jeho <em>instalaci, provoz a servis.</em>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" style="padding-bottom:0">
+  <div class="img-divider">
+    <img src="https://app.vesely.ai/objects/generated-images/95/1779111549914-b71e0fae97210beb.png" alt="Krásná zahrada s perfektně posekaným trávníkem za soumraku">
+    <div class="img-divider-caption">Když je trávník hotový, večery patří vám — ne sekačce.</div>
+  </div>
+</div>
+
+<section class="block solution-section">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Řešení</span>
+      <h2>Autonomní péče o trávník <em>formou měsíční služby.</em></h2>
+      <p class="lead-2">Nestaráte se o stroj. Nestaráte se o aplikaci. Nestaráte se o servis. Staráme se my — vy máte trávník.</p>
+    </div>
+
+    <div class="solution-grid">
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Výběr vhodného robota</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Instalace a mapování pozemku</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Nastavení zón sečení</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Vzdálený dohled</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Pravidelný servis</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Výměna nožů</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Zimní uskladnění</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Pomoc při problémech</div>
+      <div class="sol-item"><div class="sol-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Volitelně dosekání okrajů člověkem</div>
+    </div>
+
+    <div class="solution-promise">Neprodáváme stroj.<br><em>Garantujeme výsledek.</em></div>
+  </div>
+</section>
+
+<section class="block" id="jak">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Jak to funguje</span>
+      <h2>Čtyři kroky <em>k zahradě, kterou neřešíte.</em></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">01</div><h3>Zhodnotíme zahradu</h3><p>Přijedeme, změříme pozemek, ověříme signál, svahy, průjezdy a riziková místa.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Navrhneme řešení</h3><p>Vybereme robota, sečné zóny, plán provozu a cenu služby pro vaše konkrétní podmínky.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Nainstalujeme systém</h3><p>Robot začne pravidelně sekat. My sledujeme provoz a řešíme servis vzdáleně.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Vy máte hotovo</h3><p>Trávník je průběžně udržovaný — bez vašeho času, bez fyzické práce, bez plánování.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block daily-section">
+  <div class="wrap">
+    <div class="section-header centered">
+      <span class="eyebrow">Proč denní sečení</span>
+      <h2>Když robot seká <em>každý den,</em> trávník se zásadně mění.</h2>
+      <p class="lead-2">Klasické týdenní sečení trávník stresuje a vyčerpává. Denní sečení dělá pravý opak — zahušťuje porost, recykluje živiny a šetří přírodu.</p>
+    </div>
+
+    <div class="daily-hero">
+      <img src="https://app.vesely.ai/objects/generated-images/95/1779180888017-6cec69c926e97a49.png" alt="Detail dokonalého hustého zeleného trávníku — výsledek denního sečení">
+      <div class="daily-hero-caption">
+        <div class="eyebrow-light">Výsledek po jedné sezóně</div>
+        <h3>Hustý, zdravý a <em>sám se hnojící</em> trávník — bez chemie, bez odvozu trávy.</h3>
+      </div>
+    </div>
+
+    <div class="daily-grid">
+      <div class="daily-card"><span class="badge">Šetrnost</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 4 4 .5-3 3 .5 4-3.5-2L8 13.5l.5-4-3-3 4-.5z"/></svg></div>
+        <h3>Ohleduplné sečení</h3>
+        <p>Robot odebírá jen špičky stébel — pár milimetrů. Tráva neutrpí stresem, špička nezhnědne, kořeny rostou hluboko.</p>
+      </div>
+      <div class="daily-card"><span class="badge">Bez chemie</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9"/><path d="M9 12a3 3 0 1 1 6 0 3 3 0 0 1-6 0z"/><line x1="3" y1="12" x2="9" y2="12"/></svg></div>
+        <h3>Bez nutnosti hnojit</h3>
+        <p>Posekané drobné kousky se okamžitě vrací do trávníku jako přírodní dusíkaté hnojivo. Trávník se hnojí sám.</p>
+      </div>
+      <div class="daily-card"><span class="badge">Mulč</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Mulč se rychle rozkládá</h3>
+        <p>Kousíčky jsou tak malé, že je nevidíte. Mizí během hodin, ne týdnů — nezůstává plsť ani hromady trávy.</p>
+      </div>
+      <div class="daily-card"><span class="badge">Hustota</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22V12c5-5 13-5 18 0v10"/><path d="M6 22v-6"/><path d="M10 22v-9"/><path d="M14 22v-9"/><path d="M18 22v-6"/></svg></div>
+        <h3>Hustší a zdravější porost</h3>
+        <p>Stéblo se větví, plocha houstne. Po jedné sezóně máte trávník, jaký u sousedů uvidíte málokdy.</p>
+      </div>
+      <div class="daily-card"><span class="badge">Méně práce</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6c2 0 5 1 7 1s5-1 7-1 4 .5 4 .5"/><path d="M3 12c2 0 5-1 7-1s5 1 7 1 4-.5 4-.5"/><path d="M3 18c2 0 5 1 7 1s5-1 7-1 4 .5 4 .5"/></svg></div>
+        <h3>Méně mechu a plevele</h3>
+        <p>Hustý porost vytlačuje konkurenci. Méně chemie, méně práce, lepší výsledek — bez vašeho zásahu.</p>
+      </div>
+      <div class="daily-card"><span class="badge">Bez odvozu</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+        <h3>Žádné pytle s trávou</h3>
+        <p>Nemusíte sbírat, sušit, kompostovat ani odvážet. Tráva se vrací do plochy a vyživuje ji.</p>
+      </div>
+      <div class="daily-card"><span class="badge">Příroda</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Šetrné k zahradní fauně</h3>
+        <p>Robot je tichý, pomalý a předvídatelný. Šetrnější k ježkům, žížalám i motýlům než klasická rotační sekačka.</p>
+      </div>
+      <div class="daily-card"><span class="badge">Žádný stres</span>
+        <div class="daily-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Nikdy stresový sek</h3>
+        <p>Tráva nepřeroste. Žádné šokové vyžínání po dovolené, žádné spálené žluté chuchvalce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block compare-section">
+  <div class="wrap">
+    <div class="section-header centered">
+      <span class="eyebrow">Námitka</span>
+      <h2>Ano, robosekačku si <em>můžete koupit sami.</em></h2>
+    </div>
+    <p class="compare-intro">
+      Stejně jako si můžete sami servisovat auto, spravovat IT nebo čistit bazén.<br>
+      <strong>Otázka není, jestli to jde. Otázka je, jestli to chcete řešit.</strong>
+    </p>
+    <div class="compare">
+      <div class="compare-head"><div>Vlastní robosekačka</div><div>Trávník bez starostí</div></div>
+      <div class="compare-row"><div><span class="ico neg">—</span>Koupě za vlastní peníze</div><div><span class="ico pos">✓</span>Bez starosti s výběrem</div></div>
+      <div class="compare-row"><div><span class="ico neg">—</span>Instalace na vás</div><div><span class="ico pos">✓</span>Instalace v ceně</div></div>
+      <div class="compare-row"><div><span class="ico neg">—</span>Řešíte appku a chyby</div><div><span class="ico pos">✓</span>Vzdálený dohled</div></div>
+      <div class="compare-row"><div><span class="ico neg">—</span>Řešíte servis</div><div><span class="ico pos">✓</span>Servis v ceně</div></div>
+      <div class="compare-row"><div><span class="ico neg">—</span>Řešíte zimování</div><div><span class="ico pos">✓</span>Zimování v ceně</div></div>
+      <div class="compare-row"><div><span class="ico neg">—</span>Výsledek negarantovaný</div><div><span class="ico pos">✓</span>Odpovídáme za výsledek</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Pro koho je to ideální</span>
+      <h2>Pro lidi, kteří chtějí <em>krásnou zahradu</em> — ale nechtějí se stát správcem techniky.</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span>Majitelé rodinných domů</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><span>Senioři</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22V12c5-5 13-5 18 0v10"/><path d="M6 22v-6"/><path d="M14 22v-9"/></svg></div><span>Lidé s větším pozemkem</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l4-4 4 4v13"/><path d="M13 21V12h6v9"/></svg></div><span>Druhé domy a chalupy</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><span>Manažeři a podnikatelé</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/></svg></div><span>Moderní vily, FVE, smart home</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div><span>Firemní areály a penziony</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="2" y="9" width="20" height="13" rx="2" ry="2"/></svg></div><span>Lidé, kteří si svůj čas cení</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block b2b-section">
+  <div class="wrap">
+    <div class="section-header centered">
+      <span class="eyebrow">Pro firmy a areály</span>
+      <h2>Když má vzhled vašeho objektu <em>obchodní hodnotu.</em></h2>
+      <p class="lead-2">Recepce, výrobní hala, penzion, parkoviště, vstupní zóna — udržovaný trávník je první dojem. Robot ho udržuje denně, bez závislosti na zahradnické firmě a sezónním stresu.</p>
+    </div>
+
+    <div class="b2b-grid">
+      <div class="b2b-card">
+        <img src="https://app.vesely.ai/objects/generated-images/95/1779180835468-1036d2aa6c948aa9.png" alt="Firemní areál s profesionálně udržovaným trávníkem">
+        <div class="b2b-card-content">
+          <span class="label">Firemní areály</span>
+          <h3>Reprezentativní vzhled denně</h3>
+          <p>Vstupní zóna a okolí objektu vždy připravené pro klienty, audity i kontrolu.</p>
+        </div>
+      </div>
+      <div class="b2b-card">
+        <img src="https://app.vesely.ai/objects/generated-images/95/1779180913907-61faa407336f2da0.png" alt="Moderní výrobní hala s upravenou travnatou plochou">
+        <div class="b2b-card-content">
+          <span class="label">Výrobní a logistické haly</span>
+          <h3>Bez závislosti na zahradnících</h3>
+          <p>Žádné víkendové brigády, žádné výpadky v sezóně, žádné nečekané faktury.</p>
+        </div>
+      </div>
+      <div class="b2b-card">
+        <img src="https://app.vesely.ai/objects/generated-images/95/1779180863095-8a9c7c9e9044845a.png" alt="Penzion s upravenou zahradou pro hosty">
+        <div class="b2b-card-content">
+          <span class="label">Penziony a hotely</span>
+          <h3>Zahrada jako součást zážitku</h3>
+          <p>Klienti vidí klid a kvalitu. Nikdy hluk sekačky během rezervace.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="b2b-stats">
+      <div class="b2b-stat"><strong>0</strong><span>brigádníků na sekání trávy</span></div>
+      <div class="b2b-stat"><strong>365</strong><span>dní v sezóně upravený vzhled</span></div>
+      <div class="b2b-stat"><strong>1</strong><span>partner pro celé řešení</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block benefits-section">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Co tím získáte</span>
+      <h2>Šest věcí, které si <em>okamžitě užijete.</em></h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg></div><h3>Ticho</h3><p>Robot seká tiše a průběžně. Bez benzínu, bez křiku, bez konfliktu se sousedy.</p></div>
+      <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Stále upravený vzhled</h3><p>Nečekáte, až tráva přeroste. Zahrada vypadá dobře každý den, ne jednou za týden.</p></div>
+      <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div><h3>Bez fyzické práce</h3><p>Žádné tlačení sekačky, žádný benzín, žádný odvoz trávy.</p></div>
+      <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M12 7v5l3 3"/></svg></div><h3>Bez technických starostí</h3><p>Instalace, servis i nastavení jsou naše odpovědnost. Ne vaše.</p></div>
+      <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Předvídatelné náklady</h3><p>Platíte měsíční službu — ne nečekané opravy a zdražování dílů.</p></div>
+      <div class="benefit"><div class="benefit-icon" style="background:linear-gradient(135deg,rgba(46,139,87,0.2) 0%,rgba(15,61,46,0.15) 100%);color:var(--green-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3>Garance výsledku</h3><p>Když to nefunguje, řešíme to my. Garantujeme stav trávníku — ne provoz stroje.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-header centered">
+      <span class="eyebrow">Cena</span>
+      <h2>Tři balíčky. <em>Jeden jasný výsledek.</em></h2>
+      <p class="lead-2">Cena se odvíjí od velikosti a složitosti pozemku. Konkrétní nabídku připravíme po nezávazné prohlídce zdarma.</p>
+      <div class="pricing-from">Cena od <strong>1 990 Kč</strong> měsíčně</div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Basic</h3>
+        <p class="price-desc">Pro menší zahrady a klienty, kteří chtějí jen autonomní sečení a klid.</p>
+        <ul class="price-list">
+          <li>Autonomní sečení podle plánu</li>
+          <li>Vzdálený dohled</li>
+          <li>Pomoc při problémech</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:16px">Mít Basic</a>
+      </div>
+
+      <div class="price-card featured">
+        <span class="price-badge">Nejoblíbenější</span>
+        <h3>Comfort</h3>
+        <p class="price-desc">Kompletní starost o trávník po celou sezónu — od jara po zimování.</p>
+        <ul class="price-list">
+          <li>Vše z balíčku Basic</li>
+          <li>Pravidelný servis</li>
+          <li>Výměna nožů</li>
+          <li>Zimní uskladnění</li>
+        </ul>
+        <a href="#kontakt" class="btn" style="width:100%;justify-content:center;margin-top:16px;background:#fff;color:var(--green-deep);box-shadow:none">Mít Comfort</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Premium</h3>
+        <p class="price-desc">Pro klienty s nárokem na dokonalý vzhled trávníku po celý rok.</p>
+        <ul class="price-list">
+          <li>Vše z balíčku Comfort</li>
+          <li>Dosekání okrajů člověkem</li>
+          <li>Sezónní kontrola stavu trávníku</li>
+          <li>Prioritní reakce na problémy</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:16px">Mít Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="kontakt">
+  <div class="wrap">
+    <div class="cta-card">
+      <div id="formArea">
+        <span class="eyebrow">Začneme posouzením</span>
+        <h2>Zjistit, zda je <em>moje zahrada vhodná.</em></h2>
+        <p class="lead-2">Vyplňte krátký formulář. Ozveme se do 24 hodin, domluvíme bezplatnou prohlídku a řekneme, jestli a jak vám můžeme pomoct.</p>
+
+        <form id="leadForm" novalidate>
+          <div class="form-row">
+            <div class="field"><label for="name">Jméno</label><input type="text" id="name" name="name" required autocomplete="name" placeholder="Jan Novák"></div>
+            <div class="field"><label for="phone">Telefon</label><input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+420 ..."></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="email">E-mail</label><input type="email" id="email" name="email" required autocomplete="email" placeholder="jan@example.cz"></div>
+            <div class="field"><label for="city">Obec</label><input type="text" id="city" name="city" required placeholder="např. Dvůr Králové"></div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="size">Velikost pozemku</label>
+              <select id="size" name="size" required>
+                <option value="">Vyberte velikost</option>
+                <option value="do 500 m²">do 500 m²</option>
+                <option value="500 – 1 500 m²">500 – 1 500 m²</option>
+                <option value="1 500 – 3 000 m²">1 500 – 3 000 m²</option>
+                <option value="více než 3 000 m²">více než 3 000 m²</option>
+                <option value="přesně nevím">přesně nevím</option>
+              </select>
+            </div>
+            <div class="field"><label for="map">Odkaz na mapu nebo fotku</label><input type="url" id="map" name="map" placeholder="https://mapy.cz/... (volitelné)"></div>
+          </div>
+          <div class="field"><label for="note">Poznámka</label><textarea id="note" name="note" placeholder="Co je pro vás na zahradě důležité, jaké máte zkušenosti, kdy by se vám hodila instalace…"></textarea></div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <span id="submitText">Chci posoudit zahradu zdarma</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <div class="form-error" id="formError">Něco se nepovedlo. Zkuste to prosím znovu, nebo nám napište přímo na david@vesely.ai.</div>
+          <p class="form-meta">Žádné spamování. Žádné automatické nabídky. Jen klidná domluva po telefonu.</p>
+        </form>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="check-big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Děkujeme — máme to.</h3>
+        <p>Ozveme se vám během následujících 24 hodin. Mezitím můžete dýchat a nepřemýšlet o sekání.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M2 22V12c5-5 13-5 18 0v10"/><path d="M6 22v-6"/><path d="M14 22v-9"/></svg></span>
+        Trávník bez starostí
+      </div>
+      <div class="foot-meta">Provozuje Vesely.ai s.r.o. · IČ 23702907<br>Služba autonomní péče o trávník · Česká republika</div>
+      <div class="foot-links">
+        <a href="#kontakt">Kontakt</a>
+        <a href="#jak">Jak to funguje</a>
+        <a href="#">Obchodní podmínky</a>
+        <a href="#">Ochrana osobních údajů</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-in
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('section, .hero-visual, .fomo-inner, .img-divider').forEach(el => {
+    el.classList.add('fade-in'); io.observe(el);
+  });
+
+  // FOMO counter
+  const slots = document.getElementById('slotsLeft');
+  if (slots) {
+    let n = 17;
+    setInterval(() => {
+      if (Math.random() < 0.18 && n > 4) {
+        n -= 1;
+        slots.textContent = n;
+        slots.style.transition = 'color 0.4s ease';
+        slots.style.color = '#FFD27A';
+        setTimeout(() => { slots.style.color = '#fff'; }, 600);
+      }
+    }, 22000);
+  }
+
+  // Form submission → webhook → Google Sheet + Email
+  const WEBHOOK_URL = 'https://app.vesely.ai/api/webhooks/flow/3148/7b941e40fb0de504a17a6a52b38d1226c65bba25d17b321df6a6123bdc23b3df';
+  const form = document.getElementById('leadForm');
+  const successEl = document.getElementById('formSuccess');
+  const formArea = document.getElementById('formArea');
+  const errEl = document.getElementById('formError');
+
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      errEl.classList.remove('show');
+
+      // Basic native validation
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const btn = document.getElementById('submitBtn');
+      const txt = document.getElementById('submitText');
+      btn.disabled = true; txt.textContent = 'Odesíláme…';
+
+      const data = new FormData(form);
+      const payload = {
+        contactName: (data.get('name') || '').toString().trim(),
+        contactPhone: (data.get('phone') || '').toString().trim(),
+        contactEmail: (data.get('email') || '').toString().trim(),
+        data: {
+          city: (data.get('city') || '').toString().trim(),
+          size: (data.get('size') || '').toString().trim(),
+          map: (data.get('map') || '').toString().trim(),
+          note: (data.get('note') || '').toString().trim()
+        }
+      };
+
+      // Prefer platform-injected webhook URL if present, else use hardcoded
+      const url = window.__formWebhookUrl || WEBHOOK_URL;
+
+      try {
+        const resp = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        // Show success regardless of strict status (webhook returns 200 on accept)
+        if (resp.ok || resp.status === 200 || resp.status === 202) {
+          formArea.style.display = 'none';
+          successEl.classList.add('show');
+          window.scrollTo({ top: successEl.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+        } else {
+          throw new Error('Webhook returned ' + resp.status);
+        }
+      } catch (err) {
+        console.error('Lead submission error:', err);
+        errEl.classList.add('show');
+        btn.disabled = false; txt.textContent = 'Chci posoudit zahradu zdarma';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
